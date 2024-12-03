@@ -13,10 +13,10 @@ import { Navigation } from 'swiper/modules';
 
 const Testimonials = () => {
     const [reviews ,setReviews] = useState([])
-    // const [rating ,setRating] =  useState('')
+    const [rating ,setRating] =  useState('')
 
     useEffect(()=>{
-        fetch('https://bistro-boss-server-kappa-ivory.vercel.app/reviews', {credentials: 'include'})
+        fetch('https://bistro-boss-server-kappa-ivory.vercel.app/reviews')
         .then(res => res.json())
         .then(data => setReviews(data) )
     },[])
@@ -27,16 +27,16 @@ const Testimonials = () => {
                 
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper text-center w-8/12 mx-auto">
                 {
-                reviews.map(review => <SwiperSlide key={review._id} >
+                reviews.map(review => <SwiperSlide key={review?._id} >
                     <div className="">
                         <Rating
                             className='mx-auto'
                             style={{ maxWidth: 180 }}
-                            value={review.rating}
+                            value={review?.rating}
                             isRequired
                         />
-                        <p className="w-5/6 mx-auto my-4">{review.details}</p>
-                        <p className="text-2xl text-yellow-400">{review.name}</p>
+                        <p className="w-5/6 mx-auto my-4">{review?.details}</p>
+                        <p className="text-2xl text-yellow-400">{review?.name}</p>
                     </div>
                 </SwiperSlide>)
                 }
