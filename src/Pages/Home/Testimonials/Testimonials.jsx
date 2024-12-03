@@ -16,7 +16,7 @@ const Testimonials = () => {
     // const [rating ,setRating] =  useState('')
 
     useEffect(()=>{
-        fetch('https://bistro-boss-server-kappa-ivory.vercel.app//reviews')
+        fetch('https://bistro-boss-server-kappa-ivory.vercel.app/reviews', {credentials: 'include'})
         .then(res => res.json())
         .then(data => setReviews(data) )
     },[])

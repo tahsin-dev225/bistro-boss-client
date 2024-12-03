@@ -2,7 +2,8 @@ import axios from "axios";
 
 
 const axiosPublic = axios.create({
-    baseURL:'https://bistro-boss-server-kappa-ivory.vercel.app'
+    baseURL:'https://bistro-boss-server-kappa-ivory.vercel.app',
+    withCredentials:true
 })
 
 const useAxiosPublic = () => {
